@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Assignment 1: Shapes</title>
+  </head>
+
+  <body onload="main()">
+    <canvas id="webgl" width="400" height="400">
+      Please use a browser that supports "canvas"
+    </canvas>
+
+    <p>
+      <button type="button" id="clearButton">Clear Canvas</button>
+    </p>
+
+    <p>
+      Shape:
+      <button type="button" id="pointButton">Point</button>
+      <button type="button" id="triButton">Triangle</button>
+      <button type="button" id="circleButton">Circle</button>
+    </p>
+
+    <p>
+      Color:
+      Red <input type="range" min="0" max="100" value="100" class="slider" id="redSlide">
+      Green <input type="range" min="0" max="100" value="0" class="slider" id="greenSlide">
+      Blue <input type="range" min="0" max="100" value="0" class="slider" id="blueSlide">
+    </p>
+
+    <p>
+      Size: <input type="range" min="5" max="40" value="10" class="slider" id="sizeSlide">
+      (Circle) Segments: <input type="range" min="3" max="30" value="10" class="slider" id="segmentSlide">
+    </p>
+
+    <script src="../lib/webgl-utils.js"></script>
+    <script src="../lib/webgl-debug.js"></script>
+    <script src="../lib/cuon-utils.js"></script>
+
+    <script src="ColoredPoints.js"></script>
+  </body>
+</html>
