@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" /><title>Assignment 2: Blocky Horse</title>
+    <style>
+        body { background-color: #333; color: white; font-family: sans-serif; text-align: center; }
+        canvas { background-color: #111; border: 2px solid #555; display: block; margin: 20px auto; }
+        .control-panel { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; max-width: 800px; margin: 0 auto; }
+        .slider-box { border: 1px solid #555; padding: 10px; border-radius: 5px; }
+    </style>
+</head>
+<body onload="main()">
+    <h2>Blocky Horse</h2>
+    <canvas id="webgl" width="600" height="600">Please use a browser that supports "canvas"</canvas>
+    <div id="fps">FPS: 0</div><hr>
+    
+    <div class="control-panel">
+        <div class="slider-box">
+            <button id="aniOn">Animation ON</button> <button id="aniOff">OFF</button><br>
+            Global View <input type="range" min="0" max="360" value="0" id="angleSlide">
+        </div>
+        <div class="slider-box">
+            Front Left Thigh <input type="range" min="-45" max="45" value="0" id="flThighSlide"><br>
+            Front Left Calf <input type="range" min="-45" max="45" value="0" id="flCalfSlide"><br>
+            Front Left Hoof <input type="range" min="-30" max="30" value="0" id="flHoofSlide">
+        </div>
+        <div class="slider-box">
+            Neck <input type="range" min="-45" max="45" value="0" id="neckSlide"><br>
+            Tail <input type="range" min="-45" max="45" value="0" id="tailSlide">
+        </div>
+    </div>
+
+    <script src="../lib/webgl-utils.js"></script>
+    <script src="../lib/webgl-debug.js"></script>
+    <script src="../lib/cuon-utils.js"></script>
+    <script src="../lib/cuon-matrix-cse160.js"></script>
+    <script src="Animal.js"></script>
+</body>
+</html>
