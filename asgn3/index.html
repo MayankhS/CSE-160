@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Assignment 3: Majestic Voxel World Chronicles</title>
+    <style>
+        body {
+            background-color: #111;
+            color: #fff;
+            font-family: sans-serif;
+            margin: 20px;
+        }
+        #canvas-container {
+            display: flex;
+            gap: 20px;
+        }
+        canvas {
+            background-color: #050505;
+            box-shadow: 0 12px 36px rgba(0,0,0,0.7);
+            border-radius: 6px;
+        }
+        .ui-panel {
+            background: #222;
+            padding: 25px;
+            border-radius: 8px;
+            min-width: 320px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+            border: 1px solid #333;
+        }
+        .story-box {
+            background-color: #0a0a0a;
+            padding: 18px;
+            border-left: 4px solid #ff3333;
+            margin-top: 15px;
+            font-family: monospace;
+            font-size: 13px;
+            line-height: 1.6;
+            transition: border-color 1s ease;
+        }
+        .victory-banner {
+            color: #00ffcc;
+            font-weight: bold;
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse {
+            0% { opacity: 0.6; }
+            50% { opacity: 1; }
+            100% { opacity: 0.6; }
+        }
+        h1, h3 {
+            margin-top: 0;
+            color: #ff3333;
+            transition: color 1s ease;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="main-title">The Ruined Dark Citadel</h1>
+    <p id="fps">FPS: 0</p>
+
+    <div id="canvas-container">
+        <canvas id="webgl" width="600" height="600">
+            Please use a browser that supports WebGL.
+        </canvas>
+
+        <div class="ui-panel">
+            <div>
+                <h3>Navigation Protocols</h3>
+                <p style="font-size: 13px; color: #ccc; line-height: 1.5;">
+                    <strong>Movement Grid:</strong> Use <strong>W / A / S / D</strong> keys to traverse.<br><br>
+                    <strong>Look Matrix:</strong> Click and drag your <strong>Mouse</strong> across the viewport to look freely in 3D (Left, Right, Up, Down). Can press Q or E for left and right camera movement.<br><br>
+                    <strong>Citadel Actions:</strong><br>
+                    • Press <strong>F</strong> to synthesize a block forward.<br>
+                    • Press <strong>G</strong> to harvest a block directly ahead.<br><br>
+                    <strong>(Note: It'd be most wise to harvest the central altar golden relic last! *The one under the green blocks*)</strong> 
+                </p>
+            </div>
+
+            <div class="story-box" id="quest-card">
+                <div id="quest-header" style="font-weight: bold; margin-bottom: 6px; color: #ff3333;">CURRENT CAMPAIGN STATE</div>
+                <div id="story-text" style="margin-bottom: 8px; color: #ccc;">
+                    A mythical creature is trapped in the dark energy above the central altar. The citadel is consumed by an evil darkness. Find and harvest the 3 hidden Golden Relics to save it: one is hidden inside the Grand Ziggurat, one is inside the Ruined Colosseum, and the final one rests directly underneath the floating island!
+                </div>
+                <hr style="border-color: #222; margin: 8px 0;">
+                <div id="game-status" style="font-weight: bold; color: #ff3333;">Relics Cleansed: 0 / 3</div>
+                <div id="target-coords" style="color: #888; font-size: 11px; margin-top: 4px;">Targeting Matrix: [X: 0, Z: 0]</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="lib/webgl-utils.js"></script>
+    <script src="lib/webgl-debug.js"></script>
+    <script src="lib/cuon-utils.js"></script>
+    <script src="lib/cuon-matrix-cse160.js"></script>
+
+    <script src="camera.js"></script>
+    <script src="World.js"></script>
+</body>
+</html>
